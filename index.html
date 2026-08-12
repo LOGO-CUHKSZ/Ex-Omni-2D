@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ex-Omni-2D: Expressive Omni-Modal Dialogue Models with Native Visual Presence."
+    />
+    <meta property="og:title" content="Ex-Omni-2D" />
+    <meta
+      property="og:description"
+      content="Expressive Omni-Modal Dialogue Models with Native Visual Presence"
+    />
+    <meta property="og:image" content="assets/images/visual-results.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Ex-Omni-2D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar" data-header>
+      <div class="nav-wrap">
+        <a class="org-logos" href="#top" aria-label="CUHK-Shenzhen and LIGHTSPEED">
+          <img
+            class="org-logo org-logo-school"
+            src="assets/images/CUHK-SZ-LOGO-trimmed.jpg"
+            alt="The Chinese University of Hong Kong, Shenzhen"
+          />
+          <span class="org-logo-divider" aria-hidden="true"></span>
+          <img
+            class="org-logo org-logo-lightspeed"
+            src="assets/images/LightSpeed-LOGO-trimmed.png"
+            alt="LIGHTSPEED"
+          />
+        </a>
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          data-menu-button
+        >
+          <span></span><span></span>
+          <b class="sr-only">Open navigation</b>
+        </button>
+        <nav id="main-nav" data-nav>
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#prefix">Prefix Streaming</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="page">
+          <h1 class="reveal">
+            <span>Ex-Omni-2D:</span>
+            Expressive Omni-Modal Dialogue Models with Native Visual Presence
+          </h1>
+          <p class="tagline reveal">
+            Dialogue that can listen, speak, and appear.
+          </p>
+
+          <div class="authors reveal">
+            <a href="mailto:haoyuzhang3@link.cuhk.edu.cn">Haoyu Zhang<sup>*1</sup></a>
+            <span>Zhipeng Li<sup>2</sup></span>
+            <span>Xiaoying Tang<sup>1</sup></span>
+            <span>Tianshu Yu<sup>†1</sup></span>
+            <span>Yiwen Guo<sup>†3</sup></span>
+          </div>
+          <div class="institutions reveal">
+            <span><b>1</b> The Chinese University of Hong Kong, Shenzhen</span>
+            <span><b>2</b> LIGHTSPEED</span>
+            <span><b>3</b> Independent Researcher</span>
+          </div>
+
+          <div class="link-row reveal">
+            <a
+              class="pill pill-dark"
+              href="https://arxiv.org/pdf/2608.10720"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 2h8l4 4v16H6zM14 2v5h5M9 13h6M9 17h4"></path>
+              </svg>
+              Paper
+            </a>
+            <a
+              class="pill"
+              href="https://github.com/LOGO-CUHKSZ/Ex-Omni-2D-Code"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                ></path>
+              </svg>
+              Code
+            </a>
+            <a
+              class="pill"
+              href="https://huggingface.co/lemonade666/Ex-Omni-2D"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="hf-icon" aria-hidden="true">🤗</span>
+              Model
+            </a>
+            <a
+              class="pill"
+              href="https://huggingface.co/spaces/lemonade666/Ex-Omni-2D-ZeroGPU"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m10 9 5 3-5 3z"></path>
+              </svg>
+              Online Demo
+            </a>
+            <a class="pill" href="#citation">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 6h6v6H8l-3 6M14 6h6v6h-3l-3 6"></path>
+              </svg>
+              Citation
+            </a>
+          </div>
+
+          <figure class="teaser reveal">
+            <img
+              src="assets/images/visual-results.jpg"
+              alt="Reference portraits and generated expressive response frames"
+              fetchpriority="high"
+            />
+            <figcaption>
+              <strong>Dialogue-native visual responses.</strong>
+              Given a multimodal query, reference image, and reference audio,
+              Ex-Omni-2D generates coordinated text, personalized speech, and
+              synchronized video.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="method">
+        <div class="page">
+          <div class="section-heading reveal">
+            <span>How it works</span>
+            <h2>Method Overview</h2>
+            <p>
+              A dialogue model plans visual intent and produces speech units;
+              speech and video generators realize one synchronized response.
+            </p>
+          </div>
+
+          <figure class="method-figure reveal" data-lightbox>
+            <img
+              src="assets/images/pipeline.jpg"
+              alt="Ex-Omni-2D framework overview"
+              loading="lazy"
+            />
+            <figcaption>
+              Ex-Omni-2D connects multimodal understanding, visual planning,
+              native speech generation, and reference-conditioned video
+              synthesis.
+            </figcaption>
+          </figure>
+
+          <div class="steps">
+            <article class="step reveal">
+              <span>01</span>
+              <h3>Multimodal Character Grounding</h3>
+              <p>
+                Speech, text, and reference vision provide conversational
+                context, identity, appearance, and voice conditions.
+              </p>
+            </article>
+            <article class="step reveal">
+              <span>02</span>
+              <h3>Visual Response Planning</h3>
+              <p>
+                The LLM emits a structured VTP for first frame, scene, emotion,
+                movement style, and motion details.
+              </p>
+            </article>
+            <article class="step reveal">
+              <span>03</span>
+              <h3>Native Speech Interface</h3>
+              <p>
+                Sixteen codebooks generate personalized speech and serve as a
+                compact, frame-aligned video condition.
+              </p>
+            </article>
+            <article class="step reveal">
+              <span>04</span>
+              <h3>Teacher & Streaming Student</h3>
+              <p>
+                A full-sequence Teacher prioritizes quality; its Prefix-Streaming
+                Student enables efficient incremental deployment.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="results">
+        <div class="page">
+          <div class="section-heading reveal">
+            <span>Generated responses</span>
+            <h2>Qualitative Results</h2>
+            <p>
+              Ex-Omni-2D preserves reference appearance while realizing
+              dialogue-aware expression and speech-aligned motion.
+            </p>
+          </div>
+
+          <div class="demo-showcase">
+            <div class="demo-group">
+              <div class="demo-group-heading reveal">
+                <div>
+                  <span class="demo-eyebrow">Full-sequence quality</span>
+                  <h3>Video Demos</h3>
+                </div>
+              </div>
+              <div class="video-grid">
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_1.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_2.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_3.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_4.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_5.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_6.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_7.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_8.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_9.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_10.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_11.mp4"></video>
+                  </div>
+                </article>
+                <article class="video-card reveal">
+                  <div class="video-frame">
+                    <video controls preload="metadata" playsinline src="assets/videos/teacher/output_12.mp4"></video>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="prefix">
+        <div class="page">
+          <div class="section-heading reveal">
+            <h2>Prefix Streaming</h2>
+          </div>
+
+          <div class="demo-group student-group">
+            <div class="demo-group-heading reveal">
+              <div>
+                <span class="demo-eyebrow">Efficient incremental generation</span>
+                <h3>Streaming Video Demos</h3>
+              </div>
+            </div>
+            <div class="video-grid">
+              <article class="video-card reveal">
+                <div class="video-frame">
+                  <video controls preload="metadata" playsinline src="assets/videos/stu/output_1.mp4"></video>
+                </div>
+              </article>
+              <article class="video-card reveal">
+                <div class="video-frame">
+                  <video controls preload="metadata" playsinline src="assets/videos/stu/output_2.mp4"></video>
+                </div>
+              </article>
+              <article class="video-card reveal">
+                <div class="video-frame">
+                  <video controls preload="metadata" playsinline src="assets/videos/stu/output_3.mp4"></video>
+                </div>
+              </article>
+              <article class="video-card reveal">
+                <div class="video-frame">
+                  <video controls preload="metadata" playsinline src="assets/videos/stu/output_4.mp4"></video>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="comparison-grid">
+            <figure class="comparison reveal" data-lightbox>
+              <img
+                src="assets/images/prefix-ablation.jpg"
+                alt="Visual comparison without and with Prefix Streaming"
+                loading="lazy"
+              />
+              <figcaption>
+                <h3>Late-chunk appearance</h3>
+                <p>
+                  Prefix Streaming reduces cumulative deformation while
+                  retaining reference identity.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="comparison reveal" data-lightbox>
+              <img
+                src="assets/images/chunk-consistency.jpg"
+                alt="Long-horizon consistency plots"
+                loading="lazy"
+              />
+              <figcaption>
+                <h3>16-chunk consistency</h3>
+                <p>
+                  Prefix is stronger from chunks 9–16 and reduces
+                  last-to-first consistency error by <strong>21.4%</strong>.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section citation" id="citation">
+        <div class="page narrow">
+          <div class="section-heading reveal">
+            <span>Reference</span>
+            <h2>Citation</h2>
+            <p>If you find this work useful, please cite our paper and related prior work.</p>
+          </div>
+
+          <div class="bibtex reveal">
+            <div class="bibtex-head">
+              <span>BibTeX</span>
+              <button type="button" data-copy-bibtex>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                </svg>
+                <span data-copy-label>Copy</span>
+              </button>
+            </div>
+            <pre id="bibtex"><code>@article{zhang2026exomni2d,
+  title  = {Ex-Omni-2D: Expressive Omni-Modal Dialogue
+            Models with Native Visual Presence},
+  author = {Zhang, Haoyu and Li, Zhipeng and Tang, Xiaoying
+            and Yu, Tianshu and Guo, Yiwen},
+  year   = {2026}
+}
+
+@article{zhang2026ex,
+  title   = {Ex-Omni: Enabling 3D Facial Animation Generation
+             for Omni-modal Large Language Models},
+  author  = {Zhang, Haoyu and Li, Zhipeng and Guo, Yiwen
+             and Yu, Tianshu},
+  journal = {arXiv preprint arXiv:2602.07106},
+  year    = {2026}
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="page footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top">
+            <span class="brand-mark">EX</span>
+            <span>Ex-Omni-2D</span>
+          </a>
+          <p>Expressive omni-modal dialogue with native visual presence.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="https://github.com/LOGO-CUHKSZ/Ex-Omni-2D-Code">GitHub</a>
+        </div>
+        <p class="footnote">
+          * Work done during internship at LIGHTSPEED<br />
+          † Corresponding authors
+        </p>
+      </div>
+    </footer>
+
+    <div
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image preview"
+      hidden
+      data-lightbox-modal
+    >
+      <button type="button" aria-label="Close preview" data-lightbox-close>×</button>
+      <img src="" alt="" data-lightbox-image />
+    </div>
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+  </body>
+</html>
